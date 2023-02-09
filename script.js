@@ -1,4 +1,18 @@
 
+notification=()=>
+{
+        Notification.requestPermission().then(permission=>{
+            if(permission==="granted")
+            {
+               new Notification("Msg from suryansh",{
+                    body:"Turn Off mobile data"
+                });
+            }
+        });
+}
+
+   
+// notification()
 const url="https://randomuser.me/api/"
 const check_connection = async ()=>
 {
@@ -19,13 +33,14 @@ setInterval(async () => {
     if (result)
     {
         console.log("online!");
+        notification()
         document.getElementById("hi").innerHTML = "online"
     }
     else{
         document.getElementById("hi").innerHTML = 'offline'
         console.log("offline!")
     }
-}, 3000);
+}, 5000);
 
 // var p=fetch('https://google.com')
 // p.then(request =>{
