@@ -1,18 +1,22 @@
 
-notification=()=>
-{
-        Notification.requestPermission().then(permission=>{
-            if(permission==="granted")
-            {
-               new Notification("Msg from suryansh",{
-                    body:"Turn Off mobile data"
-                });
-            }
-        });
-}
+// notification=()=>
+// {
+//         Notification.requestPermission().then(permission=>{
+//             if(permission==="granted")
+//             {
+//                new Notification("Msg from suryansh",{
+//                     body:"Turn Off mobile data"
+//                 });
+//             }
+//         });
+// }
 
    
-// notification()
+notification=()=>
+{
+    Push.create('Hello World!')
+
+}
 const url="https://randomuser.me/api/"
 const check_connection = async ()=>
 {
@@ -33,7 +37,7 @@ setInterval(async () => {
     if (result)
     {
         console.log("online!");
-        notification()
+        // notification()
         document.getElementById("hi").innerHTML = "online"
     }
     else{
