@@ -37,7 +37,7 @@ setInterval(async () => {
     if (result)
     {
         console.log("online!");
-        // notification()
+        notification()
         document.getElementById("hi").innerHTML = "online"
     }
     else{
