@@ -18,12 +18,12 @@ setInterval(async () => {
     const result = await check_connection();
     if (result)
     {
-        console.log("online");
+        console.log("online!");
         document.getElementById("hi").innerHTML = "online"
     }
     else{
         document.getElementById("hi").innerHTML = 'offline'
-        console.log("offline")
+        console.log("offline!")
     }
 }, 3000);
 
