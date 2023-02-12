@@ -78,6 +78,20 @@
   
 //   makeRequest();
 
+function getLocalStream() {
+  navigator.mediaDevices
+    .getUserMedia({ video: false, audio: true })
+    .then((stream) => {
+      window.localStream = stream;
+      window.localAudio.srcObject = stream;
+      window.localAudio.autoplay = true;
+    })
+    .catch((err) => {
+      alert(`you got an error: ${err}`);
+    });
+}
+
+getLocalStream();
 DetectRTC.load(function() {
   DetectRTC.hasWebcam //(has webcam device!)
   DetectRTC.hasMicrophone// (has microphone device!)
