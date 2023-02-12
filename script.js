@@ -12,39 +12,39 @@
 // }
 
    
-notification=()=>
-{
-    Push.create('Hello World!')
+// notification=()=>
+// {
+//     Push.create('Hello World!')
 
-}
-const url="https://randomuser.me/api/"
-const check_connection = async ()=>
-{
-  try
-  {
-   const is_online = await fetch(url)
-   console.log(is_online.status)
-  return is_online.status >=200 && is_online.status<300;
+// }
+// const url="https://randomuser.me/api/"
+// const check_connection = async ()=>
+// {
+//   try
+//   {
+//    const is_online = await fetch(url)
+//    console.log(is_online.status)
+//   return is_online.status >=200 && is_online.status<300;
 
- }
- catch (error)
- {
-    return false;
- }
-}
-setInterval(async () => {
-    const result = await check_connection();
-    if (result)
-    {
-        console.log("online!");
-        notification()
-        document.getElementById("hi").innerHTML = "online"
-    }
-    else{
-        document.getElementById("hi").innerHTML = 'offline'
-        console.log("offline!")
-    }
-}, 5000);
+//  }
+//  catch (error)
+//  {
+//     return false;
+//  }
+// }
+// setInterval(async () => {
+//     const result = await check_connection();
+//     if (result)
+//     {
+//         console.log("online!");
+//         notification()
+//         document.getElementById("hi").innerHTML = "online"
+//     }
+//     else{
+//         document.getElementById("hi").innerHTML = 'offline'
+//         console.log("offline!")
+//     }
+// }, 5000);
 
 // var p=fetch('https://google.com')
 // p.then(request =>{
@@ -77,3 +77,12 @@ setInterval(async () => {
 //   }
   
 //   makeRequest();
+
+DetectRTC.load(function() {
+  DetectRTC.hasWebcam //(has webcam device!)
+  DetectRTC.hasMicrophone// (has microphone device!)
+  DetectRTC.hasSpeakers //(has speakers!)
+  document.getElementById("audio").innerHTML=(DetectRTC.audioOutputDevices.length)
+
+  // DetectRTC.DetectLocalIPAddress(callback)
+});
